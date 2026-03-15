@@ -1,0 +1,22 @@
+class TextChunker:
+
+    def __init__(self, chunk_size=800, overlap=100):
+        self.chunk_size = chunk_size
+        self.overlap = overlap
+
+
+    def chunk(self, text):
+
+        chunks = []
+
+        start = 0
+
+        while start < len(text):
+
+            end = start + self.chunk_size
+
+            chunks.append(text[start:end])
+
+            start = end - self.overlap
+
+        return chunks
